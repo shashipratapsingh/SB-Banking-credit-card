@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/../Api-Getway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../Audit-Service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../Campaign-Service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../Card-Service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../Communication-Service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../Customer-Service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../Inventory/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../Offer-Service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../OrderService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../ProductService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../ProfileService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../Survey-Service/src/main/java" charset="UTF-8" />
+  </component>
+</project>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ProfileService" />
+        <module name="RegistryService (1)" />
+        <module name="ProductService" />
+        <module name="Profile-Service" />
+        <module name="RegistryService" />
+        <module name="Api-Gateway" />
+        <module name="Product-Service" />
+      </profile>
+      <profile name="Annotation profile for Order-Service" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
+        </processorPath>
+        <module name="OrderService" />
+        <module name="Order-Service" />
+        <module name="Inventory" />
+      </profile>
+      <profile name="Annotation profile for Audit-Service" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
+        </processorPath>
+        <module name="Survey-Service" />
+        <module name="Customer-Service" />
+        <module name="Campaign-Service" />
+        <module name="Audit-Service" />
+        <module name="Communication-Service" />
+        <module name="Offer-Service" />
+        <module name="Card-Service" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Api-Gateway" options="-parameters" />
+      <module name="Audit-Service" options="-parameters" />
+      <module name="Campaign-Service" options="-parameters" />
+      <module name="Card-Service" options="-parameters" />
+      <module name="Communication-Service" options="-parameters" />
+      <module name="Customer-Service" options="-parameters" />
+      <module name="Inventory" options="-parameters" />
+      <module name="Offer-Service" options="-parameters" />
+      <module name="Order-Service" options="-parameters" />
+      <module name="OrderService" options="-parameters" />
+      <module name="Product-Service" options="-parameters" />
+      <module name="ProductService" options="-parameters" />
+      <module name="Profile-Service" options="-parameters" />
+      <module name="ProfileService" options="-parameters" />
+      <module name="RegistryService" options="-parameters" />
+      <module name="RegistryService (1)" options="-parameters" />
+      <module name="Survey-Service" options="-parameters" />
+    </option>
+  </component>
+</project>
