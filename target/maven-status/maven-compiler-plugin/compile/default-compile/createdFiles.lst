@@ -1,0 +1,2 @@
+ApiGatewayService\ApiGatewayApplication.class
+ApiGatewayService\HealthCheck\CustomHealthIndicator.class
