@@ -6,6 +6,7 @@ import Customer_Service.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -45,5 +46,9 @@ public class CustomerService {
                 customer.getProductType(),
                 "Customer registered successfully"
         );
+    }
+    public Optional<Customer> findByUniqueCustomerId(String uniqueCustomerId)
+    {
+        return repository.findByUniqueCustomerId(uniqueCustomerId);
     }
 }
