@@ -5,7 +5,6 @@ import Customer_Service.entity.Customer;
 import Customer_Service.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.Optional;
 import java.util.UUID;
 
@@ -21,20 +20,26 @@ public class CustomerService {
             Customer customer = existing.get();
             return new CustomerResponse(
                     customer.getUniqueCustomerId(),
-                    customer.getFullName(),
-                    customer.getProductType(),
+                    customer.getFirstName(),
+                    customer.getCustomerType(),
                     "Customer already exists, returning existing data"
             );
         }
 
         String uniqueId = UUID.randomUUID().toString();
         Customer customer = Customer.builder()
-                .fullName(request.getFullName())
+                .firstName(request.getFirstName())
+                .lastName(request.getLastName())
                 .email(request.getEmail())
                 .mobileNumber(request.getMobileNumber())
-                .city(request.getCity())
+                .dateOfBirth(request.getDateOfBirth())
+                .address(request.getAddress())
+                .customerType(request.getCustomerType())
+                .customerStatus(request.getCustomerStatus())
+                .kycStatus(request.getKycStatus())
+                .profileImageUrl(request.getProfileImageUrl())
+                .documentReferenceId(request.getDocumentReferenceId())
                 .incomeRange(request.getIncomeRange())
-                .productType(request.getProductType())
                 .uniqueCustomerId(uniqueId)
                 .build();
 
@@ -42,8 +47,8 @@ public class CustomerService {
 
         return new CustomerResponse(
                 uniqueId,
-                customer.getFullName(),
-                customer.getProductType(),
+                customer.getFirstName(),
+                customer.getCustomerType(),
                 "Customer registered successfully"
         );
     }

@@ -1,5 +1,5 @@
 package Customer_Service.dto;
-
+import Customer_Service.Enums.CustomerType;
 import lombok.*;
 
 @Data
@@ -7,7 +7,9 @@ import lombok.*;
 @NoArgsConstructor
 public class CustomerResponse {
     private String uniqueCustomerId;
-    private String fullName;
-    private String productType;
+    private String firstName;
+    private CustomerType customerType;
     private String message;
+
+
 }

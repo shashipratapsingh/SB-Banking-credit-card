@@ -1,14 +1,26 @@
 package Customer_Service.dto;
+import Customer_Service.Enums.CustomerStatus;
+import Customer_Service.Enums.CustomerType;
+import Customer_Service.Enums.KycStatus;
 import lombok.*;
-
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class CustomerRequest {
-    private String fullName;
+    private String firstName;
+    private String lastName;
     private String email;
     private String mobileNumber;
-    private String city;
+    private LocalDate dateOfBirth;
+    private String address;
+    private CustomerType customerType;
+    private CustomerStatus customerStatus;
+    private KycStatus kycStatus;
+    private LocalDateTime onboardingDate;
+    private String profileImageUrl;
+    private String documentReferenceId;
+    private String uniqueCustomerId;
     private String incomeRange;
-    private String productType;
 }
