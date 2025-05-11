@@ -56,4 +56,13 @@ public class CustomerService {
     {
         return repository.findByUniqueCustomerId(uniqueCustomerId);
     }
+    public Optional<Customer> findByMobileNumber(String mobileNumber)
+    {
+        return repository.findByMobileNumber(mobileNumber);
+    }
+    public Optional<Customer> findByEmail(String email)
+    {
+        return repository.findByEmail(email);
+    }
+
 }

@@ -23,4 +23,14 @@ public class CustomerController {
     {
         return customerService.findByUniqueCustomerId(uniqueCustomerId);
     }
+    @GetMapping("/phone/{mobileNumber}")
+    public Optional<Customer> findByMobileNumber(@PathVariable String mobileNumber)
+    {
+        return customerService.findByMobileNumber(mobileNumber);
+    }
+    @GetMapping("/email/{email}")
+    public Optional<Customer> findByEmail(@PathVariable String email)
+    {
+        return customerService.findByEmail(email);
+    }
 }

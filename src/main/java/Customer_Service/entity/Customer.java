@@ -17,6 +17,7 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String uniqueCustomerId;
     @Column(nullable = false)
     private String firstName;
     private String lastName;
@@ -41,7 +42,6 @@ public class Customer {
     // Profile/Document Reference
     private String profileImageUrl;     // stored as reference to S3/file store
     private String documentReferenceId; // points to DocumentService
-    private String uniqueCustomerId;
     private String incomeRange;
     // Metadata
     private String createdBy;
