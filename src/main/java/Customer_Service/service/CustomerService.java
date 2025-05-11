@@ -1,10 +1,13 @@
 package Customer_Service.service;
+import Customer_Service.Enums.KycStatus;
 import Customer_Service.dto.CustomerRequest;
 import Customer_Service.dto.CustomerResponse;
 import Customer_Service.entity.Customer;
 import Customer_Service.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -63,6 +66,10 @@ public class CustomerService {
     public Optional<Customer> findByEmail(String email)
     {
         return repository.findByEmail(email);
+    }
+    public List<Customer> findByKycStatus(String kycStatus) {
+        KycStatus statusEnum = KycStatus.valueOf(kycStatus.toUpperCase());
+        return repository.findByKycStatus(statusEnum);
     }
 
 }
