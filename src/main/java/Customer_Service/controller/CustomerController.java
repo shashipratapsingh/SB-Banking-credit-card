@@ -3,8 +3,10 @@ import Customer_Service.Enums.KycStatus;
 import Customer_Service.dto.CustomerRequest;
 import Customer_Service.dto.CustomerResponse;
 import Customer_Service.entity.Customer;
+import Customer_Service.exceptions.CustomerNotFoundException;
 import Customer_Service.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,7 +40,7 @@ public class CustomerController {
     {
         return customerService.findByEmail(email);
     }
-    @GetMapping("/kyc/{kycStatus}")
+    @GetMapping("/customerStatus/{kycStatus}")
     public ResponseEntity<List<Customer>> findByKycStatus(@PathVariable String kycStatus) {
         try {
             List<Customer> customers = customerService.findByKycStatus(kycStatus);
@@ -56,4 +58,17 @@ public class CustomerController {
             return ResponseEntity.badRequest().body(Collections.emptyList());
         }
     }
+
+    @PutMapping("/kycupdate/{uniqueCustomerId}")
+    public ResponseEntity<Customer> kycUpdate(@RequestBody Customer customer, @PathVariable String uniqueCustomerId) {
+        try {
+            Customer updatedCustomer = customerService.kycUpdate(customer, uniqueCustomerId);
+            return ResponseEntity.ok(updatedCustomer);
+        } catch (CustomerNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
 }

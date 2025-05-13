@@ -4,6 +4,7 @@ import Customer_Service.Enums.KycStatus;
 import Customer_Service.dto.CustomerRequest;
 import Customer_Service.dto.CustomerResponse;
 import Customer_Service.entity.Customer;
+import Customer_Service.exceptions.CustomerNotFoundException;
 import Customer_Service.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -77,4 +78,10 @@ public class CustomerService {
         return repository.findByCustomerType(customerTypeEnum);
     }
 
+    public Customer kycUpdate(Customer customer, String uniqueCustomerId) {
+        Customer existingCustomer=findByUniqueCustomerId(uniqueCustomerId).orElseThrow(() -> new CustomerNotFoundException("This customer not Found"+uniqueCustomerId));
+        existingCustomer.setKycStatus(customer.getKycStatus());
+        return repository.save(existingCustomer);
+
+    }
 }
