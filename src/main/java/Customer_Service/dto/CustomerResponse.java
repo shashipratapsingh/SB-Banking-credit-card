@@ -10,6 +10,7 @@ public class CustomerResponse {
     private String firstName;
     private CustomerType customerType;
     private String message;
+    private String cibiScore;
 
 
 }

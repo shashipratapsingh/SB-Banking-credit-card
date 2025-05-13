@@ -43,6 +43,7 @@ public class Customer {
     private String profileImageUrl;     // stored as reference to S3/file store
     private String documentReferenceId; // points to DocumentService
     private String incomeRange;
+    private String cibilScore;
     // Metadata
     private String createdBy;
     private LocalDateTime createdAt;

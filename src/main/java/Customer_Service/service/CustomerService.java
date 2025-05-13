@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 import java.util.UUID;
 
 @Service
@@ -27,11 +28,14 @@ public class CustomerService {
                     customer.getUniqueCustomerId(),
                     customer.getFirstName(),
                     customer.getCustomerType(),
-                    "Customer already exists, returning existing data"
+                    "Customer already exists, returning existing data",
+                    customer.getCibilScore()
             );
         }
 
         String uniqueId = UUID.randomUUID().toString();
+        String cibilScore = getString(request);
+        request.setCibilScore(cibilScore);
         Customer customer = Customer.builder()
                 .firstName(request.getFirstName())
                 .lastName(request.getLastName())
@@ -45,6 +49,7 @@ public class CustomerService {
                 .profileImageUrl(request.getProfileImageUrl())
                 .documentReferenceId(request.getDocumentReferenceId())
                 .incomeRange(request.getIncomeRange())
+                .cibilScore(request.getCibilScore())
                 .uniqueCustomerId(uniqueId)
                 .build();
 
@@ -54,8 +59,34 @@ public class CustomerService {
                 uniqueId,
                 customer.getFirstName(),
                 customer.getCustomerType(),
-                "Customer registered successfully"
+                "Customer registered successfully",
+                customer.getCibilScore()
         );
+    }
+
+    private String getString(CustomerRequest request) {
+        String incomeStr = request.getIncomeRange();
+        int income = 0;
+        try {
+            income = Integer.parseInt(incomeStr);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Invalid income format: must be a number");
+        }
+
+        String cibilScore = "";
+
+        if (income <= 20000) {
+            cibilScore = "LOW";
+        } else if (income > 20000 && income < 50000) {
+            cibilScore = "MEDIUM";
+        } else if (income >= 50000) {
+            cibilScore = "HIGH";
+        }
+        return cibilScore;
+    }
+
+    private int getRandomNumber(int min, int max) {
+        return new Random().nextInt(max - min) + min;
     }
     public Optional<Customer> findByUniqueCustomerId(String uniqueCustomerId)
     {

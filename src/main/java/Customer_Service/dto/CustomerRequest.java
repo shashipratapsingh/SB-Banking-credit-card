@@ -23,4 +23,5 @@ public class CustomerRequest {
     private String documentReferenceId;
     private String uniqueCustomerId;
     private String incomeRange;
+    private String cibilScore;
 }
