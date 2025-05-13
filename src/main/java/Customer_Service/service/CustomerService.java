@@ -34,7 +34,7 @@ public class CustomerService {
         }
 
         String uniqueId = UUID.randomUUID().toString();
-        String cibilScore = getString(request);
+        String cibilScore = getCibilScore(request);
         request.setCibilScore(cibilScore);
         Customer customer = Customer.builder()
                 .firstName(request.getFirstName())
@@ -64,7 +64,7 @@ public class CustomerService {
         );
     }
 
-    private String getString(CustomerRequest request) {
+    private String getCibilScore(CustomerRequest request) {
         String incomeStr = request.getIncomeRange();
         int income = 0;
         try {
