@@ -47,4 +47,13 @@ public class CustomerController {
             return ResponseEntity.badRequest().body(Collections.emptyList());
         }
     }
+    @GetMapping("/customerType/{customerType}")
+    public ResponseEntity<List<Customer>> findByCustomerType(@PathVariable String customerType) {
+        try {
+            List<Customer> customers = customerService.findByCustomerType(customerType);
+            return ResponseEntity.ok(customers);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(Collections.emptyList());
+        }
+    }
 }

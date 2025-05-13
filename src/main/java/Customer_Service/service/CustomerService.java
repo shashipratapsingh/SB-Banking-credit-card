@@ -1,4 +1,5 @@
 package Customer_Service.service;
+import Customer_Service.Enums.CustomerType;
 import Customer_Service.Enums.KycStatus;
 import Customer_Service.dto.CustomerRequest;
 import Customer_Service.dto.CustomerResponse;
@@ -70,6 +71,10 @@ public class CustomerService {
     public List<Customer> findByKycStatus(String kycStatus) {
         KycStatus statusEnum = KycStatus.valueOf(kycStatus.toUpperCase());
         return repository.findByKycStatus(statusEnum);
+    }
+    public List<Customer> findByCustomerType(String customerType) {
+        CustomerType customerTypeEnum = CustomerType.valueOf(customerType.toUpperCase());
+        return repository.findByCustomerType(customerTypeEnum);
     }
 
 }

@@ -15,9 +15,9 @@ public class CustomerRequest {
     private String mobileNumber;
     private LocalDate dateOfBirth;
     private String address;
-    private CustomerType customerType;
-    private CustomerStatus customerStatus;
-    private KycStatus kycStatus;
+    private CustomerType customerType;  // INDIVIDUAL or CORPORATE
+    private CustomerStatus customerStatus; // ACTIVE, INACTIVE, BLOCKED
+    private KycStatus kycStatus;  // PENDING, VERIFIED, REJECTED
     private LocalDateTime onboardingDate;
     private String profileImageUrl;
     private String documentReferenceId;
