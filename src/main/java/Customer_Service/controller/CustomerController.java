@@ -70,5 +70,9 @@ public class CustomerController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
+    @GetMapping("/cibilScore/{cibilScore}")
+    public List<Customer> findByCibilScore(@PathVariable String cibilScore) {
+        return customerService.findByCibilScore(cibilScore);
+    }
 
 }

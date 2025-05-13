@@ -109,4 +109,8 @@ public class CustomerService {
         return repository.save(existingCustomer);
 
     }
+
+    public List<Customer> findByCibilScore(String cibilScore) {
+        return repository.findByCibilScore(cibilScore);
+    }
 }

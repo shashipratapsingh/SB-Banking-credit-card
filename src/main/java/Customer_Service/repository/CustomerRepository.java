@@ -12,4 +12,5 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
     Optional<Customer> findByMobileNumber(String mobileNumber);
     List<Customer> findByKycStatus(KycStatus kycStatus);
     List<Customer> findByCustomerType(CustomerType customerType);
+    List<Customer> findByCibilScore(String cibilScore);
 }
